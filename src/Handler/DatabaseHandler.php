@@ -4,7 +4,6 @@ namespace LeonardoHipolito\LaravelLogDb\Handler;
 
 use Closure;
 use Exception;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use LeonardoHipolito\LaravelLogDb\Models\LaravelLog;
 use Monolog\Handler\AbstractProcessingHandler;
@@ -15,26 +14,27 @@ use Throwable;
 
 class DatabaseHandler extends AbstractProcessingHandler
 {
-    public function __construct(Closure|null $name = null)
+    public function __construct(?Closure $name = null)
     {
         $database = value($name);
-        if($database){
+        if ($database) {
             config()->set('database.connections.sqlite.database', database_path($database));
         }
     }
+
     protected function write(LogRecord $record): void
     {
         $this->createDatabase();
         $record = is_array($record) ? $record : $record->toArray();
 
-        if ($this->hasMinimumLevelSet() && !$this->meetsMinimumLevelThreshold($record['level'])) {
+        if ($this->hasMinimumLevelSet() && ! $this->meetsMinimumLevelThreshold($record['level'])) {
             return;
         }
 
         $exception = $record['context']['exception'] ?? null;
 
         if ($exception instanceof Throwable) {
-            $record['context']['exception'] = (string)$exception;
+            $record['context']['exception'] = (string) $exception;
         }
         try {
             LaravelLog::create([
@@ -58,9 +58,9 @@ class DatabaseHandler extends AbstractProcessingHandler
 
     protected function createDatabase(): void
     {
-        if (!file_exists(config('database.connections.sqlite.database'))) {
+        if (! file_exists(config('database.connections.sqlite.database'))) {
             $db = new SQLite3(config('database.connections.sqlite.database'));
-            $db->exec("CREATE TABLE IF NOT EXISTS laravel_logs (
+            $db->exec('CREATE TABLE IF NOT EXISTS laravel_logs (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 level_name TEXT,
                 level INTEGER,
@@ -68,7 +68,7 @@ class DatabaseHandler extends AbstractProcessingHandler
                 logged_at DATETIME DEFAULT CURRENT_TIMESTAMP,
                 context TEXT,
                 extra TEXT
-            )");
+            )');
             $db->close();
         }
     }
@@ -82,7 +82,7 @@ class DatabaseHandler extends AbstractProcessingHandler
     {
         $minimumLevel = Logger::toMonologLevel(config('logging.channels.db.level'));
 
-        if (!is_int($minimumLevel)) {
+        if (! is_int($minimumLevel)) {
             $minimumLevel = $minimumLevel->value;
         }
 

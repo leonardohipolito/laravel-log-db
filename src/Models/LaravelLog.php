@@ -2,7 +2,6 @@
 
 namespace LeonardoHipolito\LaravelLogDb\Models;
 
-
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\MassPrunable;
 use Illuminate\Database\Eloquent\Model;

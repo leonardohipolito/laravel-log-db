@@ -11,7 +11,7 @@ beforeEach(function () {
     config()->set('logging.channels.db', [
         'driver' => 'custom',
         'via' => DatabaseLogger::class,
-        'name'=>fn()=>DatabaseDateIntervalNameResolver::make()->daily(),
+        'name' => fn () => DatabaseDateIntervalNameResolver::make()->daily(),
     ]);
     config()->set('logging.channels.db.connection', 'sqlite');
 });
@@ -23,5 +23,5 @@ it('logs to the database', function () {
     $this->assertDatabaseHas('laravel_logs', [
         'level_name' => mb_strtoupper('info'),
         'message' => 'Test message',
-    ],config('logging.channels.db.connection'));
+    ], config('logging.channels.db.connection'));
 });

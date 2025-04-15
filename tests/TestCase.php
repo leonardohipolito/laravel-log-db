@@ -3,8 +3,8 @@
 namespace LeonardoHipolito\LaravelLogDb\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use LeonardoHipolito\LaravelLogDb\LaravelLogDbServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

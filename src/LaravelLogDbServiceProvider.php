@@ -2,9 +2,9 @@
 
 namespace LeonardoHipolito\LaravelLogDb;
 
+use LeonardoHipolito\LaravelLogDb\Commands\LaravelLogDbCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use LeonardoHipolito\LaravelLogDb\Commands\LaravelLogDbCommand;
 
 class LaravelLogDbServiceProvider extends PackageServiceProvider
 {
