@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace LeonardoHipolito\LaravelLogDb\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelLogDbCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-log-db';
 
     public $description = 'My command';
 

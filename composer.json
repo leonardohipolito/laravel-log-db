@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "leonardohipolito/laravel-log-db",
+    "description": "This is my package laravel-log-db",
     "keywords": [
-        ":vendor_name",
+        "Leonardo Hipólito",
         "laravel",
-        ":package_slug"
+        "laravel-log-db"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/leonardohipolito/laravel-log-db",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Leonardo Hipólito",
+            "email": "leonardohipolito.dev@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "LeonardoHipolito\\LaravelLogDb\\": "src/",
+            "LeonardoHipolito\\LaravelLogDb\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "LeonardoHipolito\\LaravelLogDb\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "LeonardoHipolito\\LaravelLogDb\\LaravelLogDbServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "LaravelLogDb": "LeonardoHipolito\\LaravelLogDb\\Facades\\LaravelLogDb"
             }
         }
     },
